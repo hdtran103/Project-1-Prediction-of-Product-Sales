@@ -9,7 +9,7 @@ by Peter Tran |  hdtran103@gmail.com
 
 ## Data Dictionary
 Explanation of the various columns in the Dataset
-![Data Dictionary](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sale/blob/main/Data/Data%20Dictionary%20(80%25).png)
+![Data Dictionary](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Data%20Dictionary%20(80%25).png)
 
 ## Item MRP by Outlet Sales
 - Here we can see that as the price of the item goes up, the total return goes up as well
