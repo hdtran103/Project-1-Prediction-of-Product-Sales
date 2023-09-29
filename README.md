@@ -108,7 +108,7 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 
  ### Summary Dot Plot Interpretation
 
-**Interpret Top 3 Features**
+**Interpret Top 3 Feature Models**
 
 - 'Item_MRP':
     - As the value of the item's MRP increases (gets redder), the target value ('Item_Outlet_Sales') increases as well (moves right)
