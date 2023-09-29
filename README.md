@@ -43,7 +43,7 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 ### Interpret Top 3 Most Impactful Feature Models
 
   -  'Outlet_Type_Supermarket Type1':
-        If the Outlet Type is Supermarket Type 1, it tends to increase a certain value (like sales or customer visits) by about 925 units compared to other types of supermarkets. This feature has the strongest effect among all the features.
+        If Outlet_type Supermarket Type 1"" == 1, then the product is sold at that type of store and the product will generate that much more revenue.
 
   -  'Outlet_Identifier_OUT027':
         If the Outlet Identifier is OUT027, this also increases our value of interest. (like sales or customer visits) but by about 901 units. So, it has the second strongest effect.
