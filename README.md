@@ -40,21 +40,22 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 ## LinearRegression Most Important Coefficients
 ![linreg_coefficients](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/linreg_coefficients.png)
 
-### Interpret Top 3 Most Impactful Features
+### Interpret Top 3 Most Impactful Feature Models
 
-- 'Outlet_Type_Supermarket Type1':
-    - If the Outlet Type is Supermarket Type 1, increase in target value by 936.702
-    
-    
-- 'Outlet_Identifier_OUT027':
-    - If the Outlet Identifier is OUT027, increase in target value by 907.157
-    
-    
-- 'Outlet_Type_Supermarket Type3':
-    - If the Outlet Type is Supermarket Type 3, increase in target value by 907.157
-    
-    
+  -  'Outlet_Type_Supermarket Type1':
+        If the Outlet Type is Supermarket Type 1, it tends to increase a certain value (like sales or customer visits) by about 925 units compared to other types of supermarkets. This feature has the strongest effect among all the features.
+
+  -  'Outlet_Identifier_OUT027':
+        If the Outlet Identifier is OUT027, this also increases our value of interest. (like sales or customer visits) but by about 901 units. So, it has the second strongest effect.
+
+  -  'Outlet_Type_Supermarket Type3':
+        If the Outlet Type is Supermarket Type 3, increase our value of interest by about 900.794(or 901 units), just like the effect of the supermarket with ID 'OUT027'. So these two features share the same level of effect, which make them equally important in our analysis.
+
 - The most impactful features are object type
+
+    - The different types of supermarkets and their unique IDs, and understanding the city and its people better, we can make smarter guesses about how well each supermarket might do in terms of sales.
+
+
 
 ## RandomForest Feature Importances
 
