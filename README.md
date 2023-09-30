@@ -1,4 +1,4 @@
-# Prediction-of-Product-Sales
+ # Prediction-of-Product-Sales
 
 by Peter Tran |  hdtran103@gmail.com
 -------------------------------------------
@@ -80,6 +80,12 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
     - 'Outlet_Identifier_OUT027'    
 
 - Same features as Default Importance, but, in this case, the features are valued higher in importance compared to the Default
+### Differences:
+
+The comparison interesting insights:
+- 'Item_Visibility' is ranked lower (5th instead of 3rd) in SHAP.
+- 'Outlet_Type_Supermarket Type 3' replaces 'Item_Weight' (ranked 4th) in SHAP.
+- 'Outlet_Identifier_OUT027' is ranked higher (3rd instead of 5th) in SHAP.
 
 ***
 # Project 1 - Revisited Part 2: Explaining Models with SHAP
@@ -112,27 +118,23 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 
  ### Summary Dot Plot Interpretation
 
-**Interpret Top 3 Feature Models**
+### Interpret Top 3 Feature Models:
+1. **Item_MRP**:
+    - A higher Item's MRP (redder dots) correlates with increased sales predictions (dots move to the right).
+      
+2. **Outlet_Type_Grocery_Store**:
+    - Being a Grocery Store (red/true) typically results in lower predicted sales (dots move to the left).
+      
+3. **Outlet_Identifier_OUT027**:
+    - Being Outlet OUT027 (red/true) significantly boosts predicted sales (dots move to the right).
 
-- 'Item_MRP':
-    - As the value of the item's MRP increases (gets redder), the target value ('Item_Outlet_Sales') increases as well (moves right)
-    - Higher the sales, potentially indicating customers are purchasing fewer but more expensive items.
-
-
-- 'Outlet_Type_Grocery_Store' (true/false):
-    - Being a Grocery Store (red/true) will decrease (move left) the target value ('Item_Outlet_Sales')
-    - Not being a Grocery Store (blue/false) will increase (move right) the target value ('Item_Outlet_Sales')
-    - Generate less revenue possibly due to lower price or fewer product
-    
-    
-- 'Outlet_Identifier_OUT027' (true/false):
-    - Being Outlet OUT027 (red/true) will increase (move right) the target value ('Item_Outlet_Sales')
-    - Not being a Outlet OUT027 (blue/false) will only marginally affect (keep center at 0 or slightly move left) the target value ('Item_Outlet_Sales')
-    - significantly boosts the sales of a product, indicating it might be a popular outlet
 
 ***
 # Local Explanations
-- Comparing 'High' and 'Low' sale stores using SHAP and LIME elucidates the primary differences between a well-performing store and a not-so-well-performing store. Features like 'Item_MRP', 'Outlet_Type', and 'Outlet_Identifier' play pivotal roles in influencing the sales figures. Cross-referencing these local insights with global interpretations provides a robust understanding of feature impacts on sales.
+- Comparing 'High' and 'Low' sale stores using SHAP and LIME provides valuable insights into the differing factors influencing sales figures between well-performing and not-so-well-performing stores.
+- Features like 'Item_MRP', 'Outlet_Type', and 'Outlet_Identifier' emerge as pivotal variables in determining sales outcomes.
+- These local insights, when juxtaposed with global interpretations, contribute to a nuanced understanding of feature impacts on sales predictions.
+
 
 ## SHAP Local Force Plot
 
@@ -185,5 +187,13 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
         - 'Item_Type_Seafood' (is not this Item Type)
         - 'Outlet_Identifier_OUT045' (is not this Outlet)
     
-    - Even though the Feature Names are cutoff, they can be seen in the bottom graph (Feature/Value)
+
+### Lime Tabular Explanation:
+#### High Sales:
+- **Predicted Value:** 6693.23 
+- **True Value:** 8323.8316
+
+#### Low Sales:
+- **Predicted Value:** 63.42 
+- **True Value:** 36.62
 
