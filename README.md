@@ -1,199 +1,179 @@
- # Prediction-of-Product-Sales
+# Prediction of Product Sales
 
-by Peter Tran |  hdtran103@gmail.com
--------------------------------------------
-[Link to the Data (.csv)](https://drive.google.com/file/d/1syH81TVrbBsdymLT_jl2JIf6IjPXtSQw/view)\
-[Source of the Data](https://datahack.analyticsvidhya.com/contest/practice-problem-big-mart-sales-iii/)
+This project aims to predict future product sales using data analytics and machine learning methodologies. The dataset comprises historical sales data which is employed to derive insights and build predictive models for future sales forecasts.
 
-### With these graphs and models, we can predict future product sales for our clients.
+---
 
-## Data Dictionary
-Explanation of the various columns in the Dataset
-![Data Dictionary](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Data%20Dictionary%20(80%25).png)
+### Author Information:
 
-## Item MRP by Outlet Sales
-- Here we can see that as the price of the item goes up, the total return goes up as well
-  - Less of those products are sold, but the higher price makes up the difference
-![Item MRP by Outlet Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Item%20MRP%20by%20Outlet%20Sales.png)
+- **Name**: Peter Tran
+- **Email**: hdtran103@gmail.com
 
-## Sales by Item Type
-- We can see that 'Fruits and Vegetables' has the most sales followed closely by 'Snack Foods'
-![Sales by Item Type](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Sales%20by%20Item%20Type.png)
+---
 
-## Comparing Outlet Type, Size, and Location Type by Sales
-- This plot is broken up into the 3 Tiers of Outlet_Location_Type with a hue of Outlet_Size
-- It shows the Outlet_Type by Item_Outlet_Sales
-- We can see that there are much more Medium stores
-- We can also see that Tier 3 stores have the most variety of Outlet_Type
-- We can then see that Supermarket Type1 is in every Tier and has all Outlet_Sizes including the Missing ones
-![Outlet Type, Size, and Location Type by Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Comparing%20Outlet%20Type%2C%20Size%2C%20and%20Location%20Type%20by%20Sales.png)
+### Dataset:
 
-## Model Evaluation
-The Decision Tree is the better model to use when predicting Item Sales.
+- **[Download Dataset (.csv)](https://drive.google.com/file/d/1syH81TVrbBsdymLT_jl2JIf6IjPXtSQw/view)**
+- **[Source of Data](https://datahack.analyticsvidhya.com/contest/practice-problem-big-mart-sales-iii/)**
 
-From the Metrics Score, we can see that the Mean Absolute Error for the Decision Tree is lower by about 70 rupees. The Root Mean Squared Error is also lower for the Decision Tree, meaning that there are less outliers throwing off the weight of our model.
+---
 
-Looking at the Percentage of Error, we can also see that the Linear Regression model will be off, on average, by 36.87% while the Decision Tree will be off by 33.85%. We'll have less error with the Decision Tree.
-***
-# Project 1 - Revisited
+### Data Dictionary:
 
-## LinearRegression Most Important Coefficients
-![linreg_coefficients](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/linreg_coefficients.png)
+A detailed explanation of dataset columns can be found in the [Data Dictionary](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Data%20Dictionary%20(80%25).png)
 
-### Interpret Top 3 Most Impactful Feature Models
+---
 
-  -  'Outlet_Type_Supermarket Type1':
-        If Outlet_type Supermarket Type 1"" == 1, then the product is sold at that type of store and the product will generate that much more revenue.
+### Project Structure:
 
-  -  'Outlet_Identifier_OUT027':
-        If the Outlet Identifier is OUT027, this also increases our value of interest. (like sales or customer visits) but by about 901 units. So, it has the second strongest effect.
+1. **Exploratory Data Analysis (EDA)**:
+    - Understanding the distribution of numerical and categorical variables.
+    - Analyzing the relationships between different variables and sales.
 
-  -  'Outlet_Type_Supermarket Type3':
-        If the Outlet Type is Supermarket Type 3, increase our value of interest by about 900.794(or 901 units), just like the effect of the supermarket with ID 'OUT027'. So these two features share the same level of effect, which make them equally important in our analysis.
+2. **Data Cleaning & Preprocessing**:
+    - Handling missing values.
+    - Encoding categorical variables.
+    - Feature scaling and normalization.
 
-- The most impactful features are object type
+3. **Model Building**:
+    - Partitioning the data into training and testing sets.
+    - Training different models including Linear Regression, Decision Tree, and Random Forest.
+    - Evaluating models based on metrics like MAE, RMSE, and R^2.
 
-    - The different types of supermarkets and their unique IDs, and understanding the city and its people better, we can make smarter guesses about how well each supermarket might do in terms of sales.
+4. **Model Evaluation & Selection**:
+    - Comparing the performance of different models.
+    - Identifying the model with the best predictive accuracy.
 
+5. **Feature Importance Analysis**:
+    - Understanding which features have the most impact on sales predictions.
 
+6. **Model Interpretability using SHAP**:
+    - Providing global and local explanations for the model predictions.
 
-## RandomForest Feature Importances
+---
 
-### Default Importances
-![rf_default_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_default_importances.png)
+### Key Insights from EDA:
 
-#### Top 5 Most Important Default Features
-    - 'Item_MRP'
-    - 'Outlet_Type_Grocery Store'
-    - 'Item_Visibility'
-    - 'Item_Weight'
-    - 'Outlet_Identifier_OUT027'
+1. **Item MRP and Outlet Sales Relationship**:
+    - Higher priced items generate more revenue despite fewer units sold. The graph illustrates how as the MRP (Maximum Retail Price) increases, the overall sales also increase.
+    ![Item MRP by Outlet Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Item%20MRP%20by%20Outlet%20Sales.png)
 
-### Permutation Importances
-![rf_perm_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_perm_importances.png)
+2. **Sales Distribution by Item Type**:
+    - 'Fruits and Vegetables' and 'Snack Foods' are the leading categories in sales. This graph showcases the total sales for each item type.
+    ![Sales by Item Type](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Sales%20by%20Item%20Type.png)
 
-#### Top 5 Most Important Permutation Features:
-    - 'Item_MRP'
-    - 'Outlet_Type_Grocery Store'
-    - 'Item_Visibility'
-    - 'Item_Weight'
-    - 'Outlet_Identifier_OUT027'    
-
-- Same features as Default Importance, but, in this case, the features are valued higher in importance compared to the Default
-### Differences:
-
-The comparison interesting insights:
-- 'Item_Visibility' is ranked lower (5th instead of 3rd) in SHAP.
-- 'Outlet_Type_Supermarket Type 3' replaces 'Item_Weight' (ranked 4th) in SHAP.
-- 'Outlet_Identifier_OUT027' is ranked higher (3rd instead of 5th) in SHAP.
-
-***
-# Project 1 - Revisited Part 2: Explaining Models with SHAP
-
-## Summary Bar Plot RandomForestRegressor
-![summary_bar_plot_rf_reg](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/summary_plot_bar_rf_reg.png?raw=true)
-- The Summary Bar Plot shows the average magnitude of SHAP values for each feature.
-  - The higher the bar, the more impact the feature has on the model's predictions.
-  - In this case, `Item_MRP` has the highest influence, followed by `Outlet_Type_Grocery Store`, and `Outlet_Identifier_OUT027`.
+3. **Outlet Characteristics Impact on Sales**:
+    - Varieties in Outlet_Type and size show a noticeable difference in sales across different cities. The graph depicts how sales vary with different outlet characteristics.
+    ![Outlet Type, Size, and Location Type by Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Comparing%20Outlet%20Type%2C%20Size%2C%20and%20Location%20Type%20by%20Sales.png)
 
 
-### Comparison with RandomForest Regressor Feature Importance
+---
 
-#### Default Feature Importances
-![rf_default_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_default_importances.png) 
+### Feature Importance Analysis:
 
-#### Permutation Feature Importances
-![rf_perm_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_perm_importances.png)
+1. **Linear Regression**:
+    - Top 3 Impactful Features:
+        - 'Outlet_Type_Supermarket Type1'
+        - 'Outlet_Identifier_OUT027'
+        - 'Outlet_Type_Supermarket Type3'
+    - **Plot of Coefficients**:
+        ![Linear Regression Coefficients](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/linreg_coefficients.png)
+    - **Interpretation**:
+        - The coefficients signify the change in the dependent variable (Sales) with a one-unit change in the respective feature, keeping other features constant.
+        - Features with higher coefficients have a higher influence on the sales prediction. For instance, outlets of type 'Supermarket Type1' have a strong positive relationship with the sales, meaning sales tend to be higher in these outlets.
 
-#### Differences
-- Default and Permutation Importances have the same top 5 features
+2. **Random Forest**:
+    - **Comparison of Default Importances and Permutation Importances**:
+        - Top Features include 'Item_MRP', 'Outlet_Type_Grocery Store', and 'Item_Visibility'.
+    - **Plots of Feature Importances**:
+        ![RF Default Importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_default_importances.png)
+        ![RF Permutation Importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_perm_importances.png)
+    - **Interpretation**:
+        - The 'Item_MRP' (Maximum Retail Price) has the highest importance in predicting sales according to the Random Forest model, implying that the price of the item is a significant determinant of sales.
+        - 'Outlet_Type_Grocery Store' also holds significant importance, suggesting the type of outlet impacts sales prediction notably. For instance, grocery stores might have lower sales figures compared to other outlet types.
+        - The comparison between default and permutation importances helps in understanding the stability and reliability of the feature importances derived from the model.
 
-- SHAP Plot Summary differs in that:
-    - 'Item_Visibility' is ranked lower (5th instead of 3rd)
-    - 'Outlet_Type_Supermarket Type 3' takes the place of 'Item_Weight' (ranked 4th)
-    - 'Outlet_Identifier_OUT027' is ranked higher (3rd instead of 5th)
+---
+### Model Explanation using SHAP:
 
- ## Summary Dot Plot RandomForestRegressor
- ![summary_plot_dot_rf_reg](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/summary_plot_dot_rf_reg.png?raw=true)
+- **Global Explanation**:
+    - Summary plots demonstrate the influence of 'Item_MRP', 'Outlet_Type_Grocery Store', and 'Outlet_Identifier_OUT027' on the model predictions, giving an overall understanding of feature impact.
+    ![Summary Bar Plot RandomForestRegressor](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/summary_plot_bar_rf_reg.png?raw=true)
+    ![Summary Dot Plot RandomForestRegressor](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/summary_plot_dot_rf_reg.png?raw=true)
 
- ### Summary Dot Plot Interpretation
+- **Local Explanation**:
+    - High and Low sale stores comparison provides insights into the varying factors influencing sales figures across different outlets, displaying how individual predictions can be interpreted.
+    ![SHAP Local Force Plot High Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/force_plot_high_sales.png)
+    ![Lime Tabular Explanation High Sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/lime_high_sales.png?raw=true)
 
-### Interpret Top 3 Feature Models:
-1. **Item_MRP**:
-    - A higher Item's MRP (redder dots) correlates with increased sales predictions (dots move to the right).
-      
-2. **Outlet_Type_Grocery_Store**:
-    - Being a Grocery Store (red/true) typically results in lower predicted sales (dots move to the left).
-      
-3. **Outlet_Identifier_OUT027**:
-    - Being Outlet OUT027 (red/true) significantly boosts predicted sales (dots move to the right).
+---
+
+### SHAP Analysis (SHapley Additive exPlanations):
+
+SHAP values help in understanding the contribution of each feature to the prediction made by the model. Below are the SHAP summary plots from our analysis along with interpretations:
+
+1. **SHAP Summary (Bar Plot)**:
+    ![SHAP Summary Bar Plot](Data/summary_plot_bar_rf_reg.png)
+    - **Comparison with Feature Importance**:
+        - Similar to the feature importance derived from the Random Forest model, 'Item_MRP' stands out as the most impactful feature according to SHAP values.
+        - However, SHAP analysis provides a more detailed insight into how each feature contributes to the predictions, allowing us to observe the positive or negative effect of features on the model's output.
+
+2. **SHAP Summary Plot (Dot Dot)**:
+    ![SHAP Summary Dot Plot](Data/summary_plot_dot_rf_reg.png)
+    - **Interpretation of Top 3 Most Important Features**:
+        1. **Item_MRP**:
+            - Higher values of 'Item_MRP' lead to higher predictions in sales, indicating that items with higher maximum retail price contribute to higher sales.
+        2. **Outlet_Type_Grocery Store**:
+            - The presence of this feature (i.e., being a Grocery Store) tends to lower the sales prediction, suggesting that grocery stores have lower sales compared to other outlet types.
+        3. **Item_Visibility**:
+            - Higher values of 'Item_Visibility' tend to lower the sales prediction. This could indicate that items that are more visible are likely to be on sale or discounted, leading to lower overall sales revenue.
+
+---
+
+---
+
+### Selected Individual Examples for Visualization:
+
+We selected two distinct examples to visualize, which represent different scenarios in our data. These visualizations help to understand how the model is making predictions at the individual level, and what features are driving these predictions.
+
+#### Example 1:
+- **Reason for Selection**: 
+    - This example represents a product with high sales, which allows us to explore what features contribute to higher sales predictions.
+
+1. **LIME Tabular Explanation**:
+    ![Lime Explanation Example 1](Data/lime_high_sales.png)
+    - **Interpretation**:
+        - The model heavily weighs the 'Item_MRP' and 'Outlet_Type_Supermarket Type3' positively, driving higher sales prediction for this example. Lower 'Item_Visibility' also contributes positively to the sales prediction.
+
+2. **SHAP Force Plot**:
+    ![Shap Force Plot Example 1:High_Sales](Data/force_plot_high_sales.png)
+    - **Interpretation**:
+        - Similar to LIME, SHAP also highlights 'Item_MRP' as a significant positive contributor. However, SHAP provides a more detailed breakdown of how each feature pushes the prediction higher or lower.
+
+#### Example 2:
+- **Reason for Selection**: 
+    - This example represents a product with lower sales, providing insights into what features contribute to lower sales predictions.
+
+1. **LIME Tabular Explanation**:
+    ![Lime Explanation Example 2](Data/lime_low_sales.png)
+    - **Interpretation**:
+        - Here, 'Outlet_Type_Grocery Store' heavily negatively influences the prediction. Lower 'Item_MRP' also contributes to the lower sales prediction.
+
+2. **SHAP Force Plot**:
+    ![Shap Force Plot Example 2:Low_Sales](Data/force_plot_low_sales.png)
+    - **Interpretation**:
+        - 'Outlet_Type_Grocery Store' and lower 'Item_MRP' are significant negative contributors to the prediction, similar to the LIME explanation. SHAP also displays a distribution of feature effects, making it easier to see how these features compare to others in the dataset.
+
+---
 
 
-***
-# Local Explanations
-- Comparing 'High' and 'Low' sale stores using SHAP and LIME provides valuable insights into the differing factors influencing sales figures between well-performing and not-so-well-performing stores.
-- Features like 'Item_MRP', 'Outlet_Type', and 'Outlet_Identifier' emerge as pivotal variables in determining sales outcomes.
-- These local insights, when juxtaposed with global interpretations, contribute to a nuanced understanding of feature impacts on sales predictions.
 
+### Conclusion:
+Through thorough analysis, feature importance examination, and model interpretability, the project provides a solid framework for predicting product sales. The iterative approach towards model improvement and interpretation leads to better and more accurate sales predictions.
 
-## SHAP Local Force Plot
+---
 
-### High Sales
-![force_plot_high_sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/force_plot_high_sales.png)
-- Significant 'push' towards the right indicating higher sales
-    - Major features:
-        - 'Item_MRP'
-        - 'Item_Visibility'
-        - 'Item_Weight'
-        
-- Only one feature pushing left (lower sales):
-    - 'Outlet_Type_Supermarket Type3'
- 
-### Low Sales
-![force_plot_low_sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/force_plot_low_sales.png)
-- Significant 'push' to the left (lower) indicating lower sales
-    - Major features:
-        - 'Outlet_Type_Grocery Store'
-        - 'Item_MRP'        
-        
-- Seems to be no features pushing right (higher sales)
+### Contact Information:
+For further inquiries or collaboration, feel free to reach out at hdtran103@gmail.com.
 
-## Lime Tabular Explanation
-
-### High Sales
-![lime_high_sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/lime_high_sales.png?raw=true)
-- Predicted Value is 6693.23 where True Value is 8323.8316
-
-- Interpreting our Features with the 'negative' and 'positive' bar chart
-    - Positive (higher sales) include:
-        - 'Outlet_Type_Grocery Store' (not a Grocery Store)
-        - 'Item_MRP' (greater than 180.25 at 219.35)
-    - Negative (lower sales) include:
-        - 'Outlet_Identifier_OUT027' (not this Outlet)
-        - 'Outlet_Type_Supermarket Type3' (not this Outlet Type)
-    - Even though the Feature Names are cutoff, they can be seen in the bottom graph (Feature/Value)
- 
-### Low Sales
-![lime_low_sales](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/lime_low_sales.png)
-- Predicted Value is 63.42 where True Value is 36.62
-
-- Interpreting our Features with the 'negative' and 'positive' bar chart
-    - Negative (lower sales) include:
-        - 'Outlet_Type_Grocery Store' (is a Grocery Store)
-        - 'Item_MRP' (less than or equal to 90.72 at 35.22)
-        - 'Outlet_Identifier_OUT027' (is not this Outlet)
-        - 'Outlet_Type_Supermarket Type3' (is not this Outlet Type)
-    - Positive (higher sales) include:
-        - 'Item_Type_Seafood' (is not this Item Type)
-        - 'Outlet_Identifier_OUT045' (is not this Outlet)
-    
-
-### Lime Tabular Explanation:
-#### High Sales:
-- **Predicted Value:** 6693.23 
-- **True Value:** 8323.8316
-
-#### Low Sales:
-- **Predicted Value:** 63.42 
-- **True Value:** 36.62
-
+---
