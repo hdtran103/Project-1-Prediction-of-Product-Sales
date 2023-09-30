@@ -1,9 +1,4 @@
 # Prediction of Product Sales
-
-This project aims to predict future product sales using data analytics and machine learning methodologies. The dataset comprises historical sales data which is employed to derive insights and build predictive models for future sales forecasts.
-
----
-
 ### Author Information:
 
 - **Name**: Peter Tran
