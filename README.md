@@ -16,36 +16,67 @@
 ### Data Dictionary:
 
 A detailed explanation of dataset columns can be found in the [Data Dictionary](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/Data%20Dictionary%20(80%25).png)
+| Variable Name           | Description                                                                                                         |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Item_Identifier         | Unique product ID                                                                                                   |
+| Item_Weight             | Weight of product                                                                                                   |
+| Item_Fat_Content        | Whether the product is low fat or regular                                                                           |
+| Item_Visibility         | The percentage of total display area of all products in a store allocated to the particular product                 |
+| Item_Type               | The category to which the product belongs                                                                           |
+| Item_MRP                | Maximum Retail Price (list price) of the product                                                                    |
+| Outlet_Identifier       | Unique store ID                                                                                                     |
+| Outlet_Establishment_Year | The year in which store was established                                                                            |
+| Outlet_Size             | The size of the store in terms of ground area covered                                                               |
+| Outlet_Location_Type    | The type of area in which the store is located                                                                      |
+| Outlet_Type             | Whether the outlet is a grocery store or some sort of supermarket                                                   |
+| Item_Outlet_Sales       | Sales of the product in the particular store. This is the target variable to be predicted.                          |
 
 ---
 
 ### Project Structure:
 
-1. **Exploratory Data Analysis (EDA)**:
+<div style="margin-left: 20px;">
+
+1. **<u>Exploratory Data Analysis (EDA):</u>**
+   <div style="margin-left: 40px;">
     - Understanding the distribution of numerical and categorical variables.
     - Analyzing the relationships between different variables and sales.
+   </div>
 
-2. **Data Cleaning & Preprocessing**:
+2. **<u>Data Cleaning & Preprocessing:</u>**
+   <div style="margin-left: 40px;">
     - Handling missing values.
     - Encoding categorical variables.
     - Feature scaling and normalization.
+   </div>
 
-3. **Model Building**:
+3. **<u>Model Building:</u>**
+   <div style="margin-left: 40px;">
     - Partitioning the data into training and testing sets.
     - Training different models including Linear Regression, Decision Tree, and Random Forest.
     - Evaluating models based on metrics like MAE, RMSE, and R^2.
+   </div>
 
-4. **Model Evaluation & Selection**:
+4. **<u>Model Evaluation & Selection:</u>**
+   <div style="margin-left: 40px;">
     - Comparing the performance of different models.
     - Identifying the model with the best predictive accuracy.
+   </div>
 
-5. **Feature Importance Analysis**:
+5. **<u>Feature Importance Analysis:</u>**
+   <div style="margin-left: 40px;">
     - Understanding which features have the most impact on sales predictions.
+   </div>
 
-6. **Model Interpretability using SHAP**:
+6. **<u>Model Interpretability using SHAP:</u>**
+   <div style="margin-left: 40px;">
     - Providing global and local explanations for the model predictions.
+   </div>
+</div>
 
 ---
+
+
 
 ### Key Insights from EDA:
 
@@ -139,11 +170,16 @@ We selected two distinct examples to visualize, which represent different scenar
     ![Lime Explanation Example 1](Data/lime_high_sales.png)
     - **Interpretation**:
         - The model heavily weighs the 'Item_MRP' and 'Outlet_Type_Supermarket Type3' positively, driving higher sales prediction for this example. Lower 'Item_Visibility' also contributes positively to the sales prediction.
-
+        - The model is hinting that selling this product in bigger or high-end supermarkets (Type3) tends to result in higher sales compared to other outlet types. Perhaps these supermarkets attract more customers or have a customer base that's more willing to spend.
+        - 'Item_Visibility' refers to how easily a customer can spot the item while roaming in the store. Lower visibility usually means it's harder for customers to find the item.
+        - SIMPLE:
+        - The product sells better at high prices and in fancier supermarkets.
+        - Even though it's not super visible in the store, it somehow still ends up in customers' baskets.
 2. **SHAP Force Plot**:
     ![Shap Force Plot Example 1:High_Sales](Data/force_plot_high_sales.png)
     - **Interpretation**:
-        - Similar to LIME, SHAP also highlights 'Item_MRP' as a significant positive contributor. However, SHAP provides a more detailed breakdown of how each feature pushes the prediction higher or lower.
+        - Similar to LIME, SHAP also highlights 'Item_MRP' as a significant positive contributor. However, The SHAP Force Plot is a visual way to see what features are pushing the predicted sales higher or lower for a particular item.
+        - 'Item_MRP' is highlighted as a big player pushing for higher sales. This is similar to saying, "Hey, the more expensive this item is priced, the more sales we seem to make!" It’s like this item has a fancy vibe, and a higher price makes it sell better.
 
 #### Example 2:
 - **Reason for Selection**: 
@@ -153,11 +189,15 @@ We selected two distinct examples to visualize, which represent different scenar
     ![Lime Explanation Example 2](Data/lime_low_sales.png)
     - **Interpretation**:
         - Here, 'Outlet_Type_Grocery Store' heavily negatively influences the prediction. Lower 'Item_MRP' also contributes to the lower sales prediction.
+        -  In this case, it’s showing us why it thinks a particular item will have low sales.
+        -  'Outlet_Type_Grocery Store'. The model is saying that being sold in a grocery store is not doing any flavors for this item. It’s like saying, This item being in a grocery store is a thump down for sales.” That's dragging the predicted sales down.
 
 2. **SHAP Force Plot**:
     ![Shap Force Plot Example 2:Low_Sales](Data/force_plot_low_sales.png)
     - **Interpretation**:
         - 'Outlet_Type_Grocery Store' and lower 'Item_MRP' are significant negative contributors to the prediction, similar to the LIME explanation. SHAP also displays a distribution of feature effects, making it easier to see how these features compare to others in the dataset.
+        - The price tag on this item also plays a role here. The model thinks that the lower price isn’t helping the sales either. It’s like, “Not only is this item stuck in a grocery store, but it’s also priced 'low', which seems to make it less appealing for some reason.”
+        - Both these factors, the grocery store outlet type, and the low prices are like weighs pulling down the sales prediction. The model's hinting that maybe a different store or a higher price could have pushed the sales up.
 
 ---
 
