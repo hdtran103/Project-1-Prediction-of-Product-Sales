@@ -86,11 +86,15 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 
 ## Summary Bar Plot RandomForestRegressor
 ![summary_bar_plot_rf_reg](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/summary_plot_bar_rf_reg.png?raw=true)
+- The Summary Bar Plot shows the average magnitude of SHAP values for each feature.
+  - The higher the bar, the more impact the feature has on the model's predictions.
+  - In this case, `Item_MRP` has the highest influence, followed by `Outlet_Type_Grocery Store`, and `Outlet_Identifier_OUT027`.
+
 
 ### Comparison with RandomForest Regressor Feature Importance
 
 #### Default Feature Importances
-![rf_default_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_default_importances.png)
+![rf_default_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_default_importances.png) 
 
 #### Permutation Feature Importances
 ![rf_perm_importances](https://github.com/hdtran103/Project-1-Prediction-of-Product-Sales/blob/main/Data/rf_perm_importances.png)
