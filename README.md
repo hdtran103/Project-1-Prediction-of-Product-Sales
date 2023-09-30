@@ -112,20 +112,23 @@ Looking at the Percentage of Error, we can also see that the Linear Regression m
 
 - 'Item_MRP':
     - As the value of the item's MRP increases (gets redder), the target value ('Item_Outlet_Sales') increases as well (moves right)
+    - Higher the sales, potentially indicating customers are purchasing fewer but more expensive items.
 
 
 - 'Outlet_Type_Grocery_Store' (true/false):
     - Being a Grocery Store (red/true) will decrease (move left) the target value ('Item_Outlet_Sales')
     - Not being a Grocery Store (blue/false) will increase (move right) the target value ('Item_Outlet_Sales')
+    - Generate less revenue possibly due to lower price or fewer product
     
     
 - 'Outlet_Identifier_OUT027' (true/false):
     - Being Outlet OUT027 (red/true) will increase (move right) the target value ('Item_Outlet_Sales')
     - Not being a Outlet OUT027 (blue/false) will only marginally affect (keep center at 0 or slightly move left) the target value ('Item_Outlet_Sales')
+    - significantly boosts the sales of a product, indicating it might be a popular outlet
 
 ***
 # Local Explanations
-- Selected to compare 'High' and 'Low' sale stores to bring into stark relief the main differences between a store that performs well and a store that doesn't
+- Comparing 'High' and 'Low' sale stores using SHAP and LIME elucidates the primary differences between a well-performing store and a not-so-well-performing store. Features like 'Item_MRP', 'Outlet_Type', and 'Outlet_Identifier' play pivotal roles in influencing the sales figures. Cross-referencing these local insights with global interpretations provides a robust understanding of feature impacts on sales.
 
 ## SHAP Local Force Plot
 
