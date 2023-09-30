@@ -108,9 +108,9 @@ A detailed explanation of dataset columns can be found in the [Data Dictionary](
 
 ---
 
-### SHAP Analysis (SHapley Additive exPlanations):
+### SHAP Analysis:
 
-SHAP values help in understanding the contribution of each feature to the prediction made by the model. Below are the SHAP summary plots from our analysis along with interpretations:
+SHAP values help in understanding the contribution of each feature to the prediction made by the model. Below are the SHAP summary plots from our analysis with interpretations:
 
 1. **SHAP Summary (Bar Plot)**:
     ![SHAP Summary Bar Plot](Data/summary_plot_bar_rf_reg.png)
